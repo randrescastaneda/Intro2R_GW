@@ -285,6 +285,7 @@ class: center, middle
 knitr::include_app("https://rrmaximiliano.shinyapps.io/learnr-app/")
 ```
 
+---
 class: center, middle
 ## Execute R from Stata
 ---
