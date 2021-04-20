@@ -45,19 +45,27 @@ here::i_am("index.Rmd")
 
 xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
 xaringanExtra::use_webcam()
+xaringanExtra::use_clipboard()
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
+    error_text = "<i class=\"fa fa-times-circle\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
 
 ```
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 # style_mono_accent_inverse(base_color = "#002b36")
 style_mono_light(
-  base_color = "#23395b",
+  base_color = "#23395b"
   # primary_color = "#263341", 
   # secondary_color = "#EDECDA", 
   # text_color = "#EDECDA",
-  header_font_google = google_font("Montserrat", "700"),
-  text_font_google   = google_font("Lato", "500", "500i"),
-  code_font_google   = google_font("IBM Plex Mono")
+  # header_font_google = google_font("Montserrat", "700"),
+  # text_font_google   = google_font("Lato", "500", "500i"),
+  # code_font_google   = google_font("IBM Plex Mono")
 )
 ```
 
@@ -78,7 +86,7 @@ background-size: cover
 class: center, middle
 ## From Stata to R
 ---
-## A little of me
+## My Story with Stata and R
 
 .f3[I am an economist by training, but data scientist in practice]
 
@@ -96,17 +104,47 @@ class: center, middle
 ---
 ## R vs Stata
 
+### .f4[Differences]
+
+* R is object oriented while Stata is action oriented:
+  + Classic example: Stata's `summarize` vs R's `summary()`
+  + In Stata you declare what you want to do, while in R you usually declare the result you want to get
+--
+
+* R needs to load non-base commands (packages) at the beginning of each session
+  + Imagine that in Stata you'd have to load a command installed with `ssc install` every time you'll use it in a new session
+  + There is a way to bypass this
+
+---
+## R vs Stata
+
+### .f4[Differences]
+
+* R is less specialized, which means more flexibility and more functionalities.
+
+* R has a much broader network of users:
+  + More resources online, which makes using Google a lot easier. You'll never want to see Statalist again in your life!
+  + Development of new features and bug fixes happen faster.
+
+
+---
+## R vs Stata
+
 ### .f4[Advantages of Stata]
+
 - Stata is more specialized, which makes certain common tasks simpler
 --
 
-- Stata has wider adoption among micro-econometricians (though R adoption is steadily increasing).
+- Stata has wider adoption among micro-econometricians (though R adoption is steadily increasing). 
 --
 
-- The implementation of frames in Stata 16 has made everything easier now
+- The implementation of frames in Stata 16 has made everything easier
 --
 
 - Super intuitive
+--
+
+- It is getting better and better with each upgrade
 
 ???
 Running a regression with clustered standard errors
@@ -118,14 +156,18 @@ Development of new specialized techniques and tools could happen faster (e.g. ie
 ---
 ## R vs Stata
 
-### .f4[Advantages of Stata]
+### .f4[Advantages of R]
+
 - R is a free and open source software!
+
 --
 
 -It allows you to have several datasets open simultaneously.
+    + No need to use `keep`, `preserve`, `restore`, or `tempfile` 
 --
 
-- No need to use `keep`, `preserve`, `restore`, or `tempfile` It can run complex Geographic Information System (GIS) analyses.
+- It can run complex Geographic Information System (GIS) analyses.
+--
 
 - You can use it for web scrapping.
 --
@@ -135,8 +177,24 @@ Development of new specialized techniques and tools could happen faster (e.g. ie
 
 - You can create complex Markdown documents. This presentation, for example, is entirely done in R.
 --
+    + Latex, slides, websites, books, reports, Word documents, PPT presentations, etc.
+
+---
+## R vs Stata
+
+### .f4[Advantages of R]
+
+- It reads and works with no rectangular data
+--
 
 - You can create interactive dashboards and online applications with the Shiny package.
+--
+
+- Help online is amazing!
+--
+
+- [RStudio](https://www.rstudio.com/) exists
+
 ---
 ## R Vs Python
 ```{r echo=FALSE}
