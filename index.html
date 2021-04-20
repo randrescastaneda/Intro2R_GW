@@ -19,6 +19,7 @@
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="my_style.css" type="text/css" />
   </head>
@@ -209,8 +210,8 @@ If I were going to teach my kids one programming language, it will Python.
 
 ---
 
-class: inverse, center, middle
-![](https://gph.is/2LtSD0x)
+class: center, middle
+![](https://media.giphy.com/media/dILrAu24mU729pxPYN/giphy.gif)
 ---
 ## R vs Python
 
@@ -228,32 +229,96 @@ class: inverse, center, middle
 class: center, middle
 ## EVerything you need to start working with R
 ---
-# base
-# tidyverse
-# data.table
+
+## Installation
+
+you need R and RStudio installed in your computer:
+
+### Instructions
+
+* Please visit (https://cran.r-project.org) and select a Comprehensive R Archive Network (CRAN) mirror close to you.
+
+* I use either the RStudio mirror or the Berkeley University mirror at (https://cran.cnr.berkeley.edu).
+
+* To install RStudio, go to (https://www.rstudio.com/) .red[Note that you need to install R first.]
+
+---
+
+## Syntax
+
+There are three main syntax
+
+- base
+
+- tidyverse
+
+- data.table
+
+---
+layout:true
+## Data in R
+
+---
+
+.f3[.red[Note: ]The rest of the slides are based on a training imparted by DIME in the World Bank]
+
+---
+
+### In Stata:
+
+* You can open __one dataset__ and perform operations that can change that dataset.
+
+* You can also have other things, such as matrices, macros and tempfiles, but they are secondary. __Most functions only use the main dataset__.
+
+* If you wish to do any non-permanent changes to your data, __you'll need to preserve the original data to keep it intact__.
+
+---
+
+### In R:
+
+__R__ works in a completely different way: 
+ 
+* You can load __as many datasets as you wish__ or your computer's memory allows
+
+* Operations will have lasting effects __only if you store them__
+
+---
+
+### In R:
+
+* Everything that exists in R's memory -- variables, datasets, functions -- __is an object__
+
+* You could think of an object like a chunk of data with some properties that has a name by which you call it
+
+* If you create an object, it's going to be stored in memory until you delete it or quit R
+
+* Whenever you run anything you intend to use in the future, __you need to store it as an object__.
+
+---
+### packages
+
+Make sure you install the following packages,
+
+
+
+---
+
+We will use the [gapminder](https://www.gapminder.org/) data.
+
+To make it easier to work with, we will use `df` as the name of the data rather than `gapminder`
+
+
+
+First, let's take a look at the data.
+
+Type the following code __in the Console panel__ and press Enter to explore the data: 
+
+
+---
+Alternatively we can print the first 6 obs. with `head()`:
 
 &lt;iframe src="https://rrmaximiliano.shinyapps.io/learnr-app/?showcase=0" width="720" height="400px"&gt;&lt;/iframe&gt;
 
-
----
-class: center, middle
-## The basics of R
----
-&lt;iframe src="https://rrmaximiliano.shinyapps.io/learnr-app/?showcase=0" width="720" height="400px"&gt;&lt;/iframe&gt;
-
----
-class: center, middle
-## Execute R from Stata
----
-
-# the Rcall package
-
----
-class: center, middle
-## Execute Stata from R
----
-
-# the blah package. 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
