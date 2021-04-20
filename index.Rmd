@@ -162,7 +162,7 @@ Development of new specialized techniques and tools could happen faster (e.g. ie
 
 --
 
--It allows you to have several datasets open simultaneously.
+- It allows you to have several datasets open simultaneously.
     + No need to use `keep`, `preserve`, `restore`, or `tempfile` 
 --
 
@@ -194,15 +194,75 @@ Development of new specialized techniques and tools could happen faster (e.g. ie
 --
 
 - [RStudio](https://www.rstudio.com/) exists
+    + Everything is integrated. The interface, the data, the code, git, and the outcome.
+--
+
+- R is constantly updated and fixed.
 
 ---
-## R Vs Python
-```{r echo=FALSE}
-knitr::include_app("https://rrmaximiliano.shinyapps.io/learnr-app/")
-```
+## R vs Python
+
+.center[.f3[.light-red[Disclaimer: ]I don't know much about Python to make a fair assessment]]
+---
+## R vs Python
+
+### .f4[in general]
+
+- Python and R were created with different objectives.
+    + Python was created as a general programming language
+    + R was created for statistical analysis
+--
+
+- Over time both have moved slowly to the each other's side.
+--
+
+- You can find a "fair" comparison in this [PDF created by DataCamp](https://s3.amazonaws.com/assets.datacamp.com/email/other/Python+vs+R.pdf). 
+--
+
+   + I say "fair" because it is too general, and not specific for economists and social scientists. 
 
 ---
-## R is better because
+## R vs Python
+
+### .f4[in general]
+
+- I Prefer R because it is designed for and by academics, not developers.
+--
+
+- If there is something that I need to do in Python that I can't in R, I just run Python from R, get the results, and keep working on R. 
+--
+
+- Contrary to what some people say, I think R syntax is easier that Python's.
+--
+
+- Coding with `tidyverse` syntax of `data.table` syntax make the work extremely easy.
+--
+
+- You should learn both! 
+
+---
+## R vs Python
+
+### .f4[... BUT!]
+
+If I were going to teach my kids one programming language, it will Python.
+
+---
+
+class: inverse, center, middle
+![](https://gph.is/2LtSD0x)
+---
+## R vs Python
+
+### .f4[Well, because]
+
+- If it keeps getting more popularity than R, it will be more attractive in the CV. 
+--
+
+- It is a general programming language that allows them to create anything from scratch; not only useful for data analysis. 
+--
+
+- I will teach them R, anyway... 
 
 ---
 class: center, middle
@@ -212,8 +272,19 @@ class: center, middle
 # tidyverse
 # data.table
 
+```{r echo=FALSE}
+knitr::include_app("https://rrmaximiliano.shinyapps.io/learnr-app/")
+```
+
 
 ---
+class: center, middle
+## The basics of R
+---
+```{r echo=FALSE}
+knitr::include_app("https://rrmaximiliano.shinyapps.io/learnr-app/")
+```
+
 class: center, middle
 ## Execute R from Stata
 ---
