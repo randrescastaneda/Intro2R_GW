@@ -33,7 +33,7 @@ knitr::opts_chunk$set(
   warning = FALSE,
   collapse = TRUE,
   message = FALSE,
-  echo = FALSE,
+  # echo = FALSE,
   fig.retina = 3,
   fig.width = 10
 )
@@ -384,7 +384,7 @@ Functions are instructions for what to DO with the data.
 
 There are two (well three) kind of vectors.
 
-```{r, echo = FALSE, out.width = NULL}
+```{r, echo=FALSE, out.width=NULL}
 knitr::include_graphics("https://github.com/hadley/adv-r/raw/master/diagrams/vectors/summary-tree.png")
 ```
 
@@ -396,11 +396,15 @@ __lists__: elements can have different types.
 
 ---
 ## Atomic vectors
-Since atomic vectors require that all elements are of the same type, there are four type .light-gray[(six in reality, but you won't use them)]
-
-```{r, echo = FALSE, out.width = NULL}
+.pull-left[
+Since atomic vectors require that all elements are of the same type, there are four type .light-blue[(six in reality, but you won't use them)]
+]
+.pull-right[
+```{r, echo=FALSE, out.width=NULL}
 knitr::include_graphics("https://github.com/hadley/adv-r/raw/master/diagrams/vectors/summary-tree-atomic.png")
 ```
+]
+
 
 ---
 ## Examples of atomic vectors
@@ -444,3 +448,4 @@ Alternatively we can print the first 6 obs. with `head()`:
 knitr::include_app("https://rrmaximiliano.shinyapps.io/learnr-app/")
 ```
 
+---

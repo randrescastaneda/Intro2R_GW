@@ -354,13 +354,23 @@ __lists__: elements can have different types.
 
 ---
 ## Atomic vectors
-Since atomic vectors require that all elements are of the same type, there are four type .light-gray[(six in reality, but you won't use them)]
-
+.pull-left[
+Since atomic vectors require that all elements are of the same type, there are four type .light-blue[(six in reality, but you won't use them)]
+]
+.pull-right[
 ![](https://github.com/hadley/adv-r/raw/master/diagrams/vectors/summary-tree-atomic.png)&lt;!-- --&gt;
+]
+
 
 ---
 ## Examples of atomic vectors
 
+```r
+lgl_var &lt;- c(TRUE, FALSE)
+int_var &lt;- c(1L, 6L, 10L)
+dbl_var &lt;- c(1, 2.5, 4.5)
+chr_var &lt;- c("these are", "some strings")
+```
 
 &lt;iframe src="https://rrmaximiliano.shinyapps.io/learnr-app/?showcase=0" width="720" height="400px"&gt;&lt;/iframe&gt;
 
@@ -370,17 +380,30 @@ We will use the [gapminder](https://www.gapminder.org/) data.
 To make it easier to work with, we will use `df` as the name of the data rather than `gapminder`
 
 
+```r
+# Load the data
+pkg &lt;- c("tidyverse", "data.table", "gapminder")
+lapply(pkg, library,  character.only = TRUE)
+
+# Change name for convenience
+df &lt;- gapminder
+```
 
 First, let's take a look at the data.
 
 Type the following code __in the Console panel__ and press Enter to explore the data: 
 
+```r
+# We can use the function View() to browse the whole data
+View(df) 
+```
 
 ---
 Alternatively we can print the first 6 obs. with `head()`:
 
 &lt;iframe src="https://rrmaximiliano.shinyapps.io/learnr-app/?showcase=0" width="720" height="400px"&gt;&lt;/iframe&gt;
 
+---
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
