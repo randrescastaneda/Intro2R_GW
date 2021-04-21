@@ -397,7 +397,7 @@ __lists__: elements can have different types.
 ---
 ## Atomic vectors
 .pull-left[
-Since atomic vectors require that all elements are of the same type, there are four type .light-blue[(six in reality, but you won't use them)]
+Since atomic vectors require that all elements are of the same type, there are four types .light-blue[(six in reality, but you won't use the other two: raw and complex)]
 ]
 .pull-right[
 ```{r, echo=FALSE, out.width=NULL}
@@ -408,16 +408,34 @@ knitr::include_graphics("https://github.com/hadley/adv-r/raw/master/diagrams/vec
 
 ---
 ## Examples of atomic vectors
-```{r, eval=FALSE}
+.pull-left[
+```{r}
 lgl_var <- c(TRUE, FALSE)
 int_var <- c(1L, 6L, 10L)
 dbl_var <- c(1, 2.5, 4.5)
 chr_var <- c("these are", "some strings")
+x <- matrix(1:6, nrow = 2, ncol = 3)
 ```
 
+]
+.pull-right[
+Exlore `typeof` and `class`
 ```{r echo=FALSE}
 knitr::include_app("https://rrmaximiliano.shinyapps.io/learnr-app/")
 ```
+]
+---
+## Class of vectors (S3 object system)
+.pull-left[
+Classes are attributes of the vectors that inform the functions how to deal with
+the vector
+
+]
+.pull-right[
+```{r, echo=FALSE, out.width=450}
+knitr::include_graphics("https://github.com/hadley/adv-r/raw/master/diagrams/vectors/summary-tree-s3-1.png")
+```
+]
 
 ---
 We will use the [gapminder](https://www.gapminder.org/) data.
