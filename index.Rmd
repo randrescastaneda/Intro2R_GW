@@ -438,6 +438,52 @@ knitr::include_graphics("https://github.com/hadley/adv-r/raw/master/diagrams/vec
 ]
 
 ---
+## List vectors
+In lists, elements can be of any type.
+```{r lists}
+l1 <- list(
+  1:3, 
+  "a", 
+  c(TRUE, FALSE, TRUE), 
+  c(2.3, 5.9)
+)
+typeof(l1)
+str(l1)
+```
+
+---
+## `data.frame`, a special kind of lists (..finally!)
+
+data frames are the kind of rectangular tables that you use in Stata
+```{r dataframe}
+df1 <- data.frame(x = 1:3, y = letters[1:3])
+typeof(df1)
+attributes(df1)
+```
+
+---
+## Better data.frames! `tibble` and `data.table`
+
+Base R `data.frame`s are a great idea, but a little old. By trying to do more, the end up doing less and frustrate the users.
+
+--
+
+You should move to `tibble`s and/or `data.table`s.
+
+--
+
+```{r tibble}
+library(tibble)    
+library(data.table)
+
+# Bad code on purpose
+tb <- tibble::tibble(x = 1:3, y = letters[1:3])
+dt <- data.table::data.table(x = 1:3, y = letters[1:3])
+class(tb)
+class(dt)
+```
+
+---
 We will use the [gapminder](https://www.gapminder.org/) data.
 
 To make it easier to work with, we will use `df` as the name of the data rather than `gapminder`
@@ -463,7 +509,7 @@ View(df)
 Alternatively we can print the first 6 obs. with `head()`:
 
 ```{r echo=FALSE}
-knitr::include_app("https://rrmaximiliano.shinyapps.io/learnr-app/")
+head(df)
 ```
 
 ---
