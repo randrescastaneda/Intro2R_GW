@@ -57,6 +57,7 @@ xaringanExtra::use_extra_styles(
   hover_code_line = TRUE,         #<<
   mute_unhighlighted_code = TRUE  #<<
 )
+xaringanExtra::use_scribble()
 
 ```
 
@@ -270,7 +271,7 @@ class: center, middle
 
 ---
 class: center, middle
-## EVerything you need to start working with R
+## Everything you need to start working with R
 ---
 
 ## Installation
@@ -280,8 +281,6 @@ you need R and RStudio installed in your computer:
 ### Instructions
 
 * Please visit (https://cran.r-project.org) and select a Comprehensive R Archive Network (CRAN) mirror close to you.
-
-* I use either the RStudio mirror or the Berkeley University mirror at (https://cran.cnr.berkeley.edu).
 
 * To install RStudio, go to (https://www.rstudio.com/) .red[Note that you need to install R first.]
 
@@ -303,7 +302,7 @@ layout:true
 
 ---
 
-.f3[.red[Note: ]The rest of the slides are based on a training imparted by DIME in the World Bank]
+.f3[.red[Note: ]The rest of the slides are based on the book [advanced R](https://adv-r.hadley.nz/index.html) by Hadley Wickham and a training imparted by DIME in the World Bank]
 
 ---
 
@@ -338,17 +337,85 @@ __R__ works in a completely different way:
 * Whenever you run anything you intend to use in the future, __you need to store it as an object__.
 
 ---
-### packages
+layout:false
+## packages
 
 Make sure you install the following packages,
 
-```{r packages, eval=FALSE}
-pkg <- c("tidyverse", "data.table", "gapminder")
-lapply(pkg, install.packages)
+```{r packages, eval=FALSE, echo=TRUE}
+install.packages("tidyverse") # <-- this may take a while
+install.packages("data.table")
+install.packages("gapminder")
 ```
 
 ---
+class: center, middle
+## Preliminaty notions
+---
 
+## Objects and names
+(Almost) Everything in R is an object
+
+--
+
+In R you create objects, which you can bind to a name 'x'. You do NOT create an object name 'x'.
+
+```{r bind, echo=TRUE, results="hide"}
+x <- c(1, 2, 3)
+y <- x
+```
+
+```{r, echo = FALSE, out.width = NULL}
+knitr::include_graphics("https://github.com/hadley/adv-r/raw/master/diagrams/name-value/binding-2.png")
+```
+---
+## Vectors and functions
+
+Simplifying, in R, 
+
+Vectors contain the information; the data. 
+
+--
+
+Functions are instructions for what to DO with the data. 
+
+---
+## Vectors
+
+There are two (well three) kind of vectors.
+
+```{r, echo = FALSE, out.width = NULL}
+knitr::include_graphics("https://github.com/hadley/adv-r/raw/master/diagrams/vectors/summary-tree.png")
+```
+
+--
+
+**Atomic vectors**: all elements must have the same type
+
+__lists__: elements can have different types.
+
+---
+## Atomic vectors
+Since atomic vectors require that all elements are of the same type, there are four type .light-gray[(six in reality, but you won't use them)]
+
+```{r, echo = FALSE, out.width = NULL}
+knitr::include_graphics("https://github.com/hadley/adv-r/raw/master/diagrams/vectors/summary-tree-atomic.png")
+```
+
+---
+## Examples of atomic vectors
+```{r, eval=FALSE}
+lgl_var <- c(TRUE, FALSE)
+int_var <- c(1L, 6L, 10L)
+dbl_var <- c(1, 2.5, 4.5)
+chr_var <- c("these are", "some strings")
+```
+
+```{r echo=FALSE}
+knitr::include_app("https://rrmaximiliano.shinyapps.io/learnr-app/")
+```
+
+---
 We will use the [gapminder](https://www.gapminder.org/) data.
 
 To make it easier to work with, we will use `df` as the name of the data rather than `gapminder`
