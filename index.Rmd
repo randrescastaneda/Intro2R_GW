@@ -484,32 +484,83 @@ class(dt)
 ```
 
 ---
+class: center, middle
+## Interlude
+### .left[Executing Stata from R, and viceversa]
+---
+## Execute Stata from R
+
+- You need to have Stata and R installed in your computer
+--
+
+- You need to install the package **RStata** in R, `install.packages('RStata')`.
+--
+
+- Open .Rprofile, `file.edit("~/.Rprofile")`, and add the following lines, changing the path and the Stata version
+
+```{r RStata, eval=FALSE}
+options(
+  "RStata.StataPath" = "\"C:\\Program Files\\Stata16\\StataMP-64\"",
+  "RStata.StataVersion" = 16
+)
+```
+
+--
+
+That's it! 
+
+---
+## Execute Stata from R
+
+```{r stata1, cache=TRUE}
+stata_src <- "
+sysuse auto
+reg mpg weight
+"
+RStata::stata(stata_src)
+
+```
+
+---
+## Execute Stata from R
+```{r stata2, cache=TRUE}
+x <- data.frame(a = rnorm(3), b = letters[1:3])
+RStata::stata("sum a", data.in = x)
+```
+---
+## Execute Stata from R
+
+You can read more about it in 
+.center[
+- The official repo, [lbraglia/RStata](https://github.com/lbraglia/RStata)
+
+- Take a look at this [blog](https://fsolt.org/blog/2018/08/15/switch-to-r.html).
+]
+---
+## Execute R from Stata
+
+- Install **github** Stata package, `net install github, from("https://haghish.github.io/github/")`
+--
+
+- Install **rcall** Stata package, `github install haghish/rcall, stable`
+-- 
+
+- Take a look at all the examples in the help file `help rcall`
+
+---
+class: center, middle
+## Interlude
+### .left[Executing Stata from R, and viceversa]
+---
 We will use the [gapminder](https://www.gapminder.org/) data.
 
 To make it easier to work with, we will use `df` as the name of the data rather than `gapminder`
 
 ```{r, include=TRUE, results="hide"}
 # Load the data
-pkg <- c("tidyverse", "data.table", "gapminder")
-lapply(pkg, library,  character.only = TRUE)
-
+library("tidyverse") 
+library("data.table")
+library("gapminder")
 # Change name for convenience
 df <- gapminder
 ```
-
-First, let's take a look at the data.
-
-Type the following code __in the Console panel__ and press Enter to explore the data: 
-```{r, eval=FALSE}
-# We can use the function View() to browse the whole data
-View(df) 
-```
-
----
-Alternatively we can print the first 6 obs. with `head()`:
-
-```{r echo=FALSE}
-head(df)
-```
-
----
