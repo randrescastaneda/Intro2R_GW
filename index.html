@@ -51,7 +51,7 @@ background-size: cover
 class: center, middle
 ## From Stata to R
 ---
-## My Story with Stata and R
+## My story with Stata and R
 
 .f3[I am an economist by training, but data scientist in practice]
 
@@ -132,30 +132,37 @@ Development of new specialized techniques and tools could happen faster (e.g. ie
 --
 
 - It can run complex Geographic Information System (GIS) analyses.
+
 --
 
 - You can use it for web scrapping.
+
 --
 
-- You can run machine learning algorithms with it.
---
+- You can run machine learning algorithms with it
 
+---
+## R vs Stata
+
+### .f4[Advantages of R]
 - You can create complex Markdown documents. This presentation, for example, is entirely done in R.
+    - Latex, slides, websites, books, reports, Word documents, PPT presentations, etc.
+
 --
-    + Latex, slides, websites, books, reports, Word documents, PPT presentations, etc.
+
+- It reads and works with no rectangular data
+
+--
+
+- You can create interactive dashboards and online applications with the Shiny package.
 
 ---
 ## R vs Stata
 
 ### .f4[Advantages of R]
 
-- It reads and works with no rectangular data
---
-
-- You can create interactive dashboards and online applications with the Shiny package.
---
-
 - Help online is amazing!
+
 --
 
 - [RStudio](https://www.rstudio.com/) exists
@@ -171,11 +178,12 @@ Development of new specialized techniques and tools could happen faster (e.g. ie
 ---
 ## R vs Python
 
-### .f4[in general]
+### .f4[I   n general]
 
 - Python and R were created with different objectives.
     + Python was created as a general programming language
     + R was created for statistical analysis
+
 --
 
 - Over time both have moved slowly to the each other's side.
@@ -184,23 +192,32 @@ Development of new specialized techniques and tools could happen faster (e.g. ie
 - You can find a "fair" comparison in this [PDF created by DataCamp](https://s3.amazonaws.com/assets.datacamp.com/email/other/Python+vs+R.pdf). 
 --
 
-   + I say "fair" because it is too general, and not specific for economists and social scientists. 
+   + .orange[I say "fair" because it is too general, and not specific for economists and social scientists.] 
 
 ---
 ## R vs Python
 
-### .f4[in general]
-
 - I Prefer R because it is designed for and by academics, not developers.
+
 --
 
-- If there is something that I need to do in Python that I can't in R, I just run Python from R, get the results, and keep working on R. 
+- If there is something that I need to do in Python, I just run Python from R, get the results, and keep working on R
+--
+(same thing with Stata... I'll show you). 
+
 --
 
-- Contrary to what some people say, I think R syntax is easier that Python's.
+- Contrary to what some people say, I think R syntax is easier than Python's.
+
 --
 
-- Coding with `tidyverse` syntax of `data.table` syntax make the work extremely easy.
+- Coding with `tidyverse` or `data.table` syntax make the work extremely easy.
+
+---
+## R vs Python
+
+- The whole `tidyverse` and RStudio tools are just amazing. There is nothing like that in Python!
+
 --
 
 - You should learn both! 
@@ -219,12 +236,16 @@ class: center, middle
 ---
 ## R vs Python
 
-### .f4[Well, because]
+### .f4[Well, because...]
 
-- If it keeps getting more popularity than R, it will be more attractive in the CV. 
+--
+
+- If it keeps getting more popularity than R, it will be more attractive in their CVs. 
+
 --
 
 - It is a general programming language that allows them to create anything from scratch; not only useful for data analysis. 
+
 --
 
 - I will teach them R, anyway... 
@@ -236,13 +257,13 @@ class: center, middle
 
 ## Installation
 
-you need R and RStudio installed in your computer:
+You need R and RStudio installed in your computer:
 
 ### Instructions
 
 * Please visit (https://cran.r-project.org) and select a Comprehensive R Archive Network (CRAN) mirror close to you.
 
-* To install RStudio, go to (https://www.rstudio.com/) .red[Note that you need to install R first.]
+* To install RStudio, go to (https://www.rstudio.com/). .red[You need to install R first.]
 
 ---
 
@@ -262,7 +283,7 @@ layout:true
 
 ---
 
-.f3[.red[Note: ]The rest of the slides are based on the book [advanced R](https://adv-r.hadley.nz/index.html) by Hadley Wickham and a training imparted by DIME in the World Bank]
+.f3[.red[Note: ]The rest of the slides are based on the book [advanced R](https://adv-r.hadley.nz/index.html) by Hadley Wickham]
 
 ---
 
@@ -290,9 +311,15 @@ __R__ works in a completely different way:
 
 * Everything that exists in R's memory -- variables, datasets, functions -- __is an object__
 
+--
+
 * You could think of an object like a chunk of data with some properties that has a name by which you call it
 
+--
+
 * If you create an object, it's going to be stored in memory until you delete it or quit R
+
+--
 
 * Whenever you run anything you intend to use in the future, __you need to store it as an object__.
 
@@ -300,7 +327,7 @@ __R__ works in a completely different way:
 layout:false
 ## packages
 
-Make sure you install the following packages,
+Make sure you install the following packages (we will use them later),
 
 
 ```r
@@ -311,7 +338,7 @@ install.packages("gapminder")
 
 ---
 class: center, middle
-## Preliminaty notions
+## Preliminary notions
 ---
 
 ## Objects and names
@@ -319,7 +346,11 @@ class: center, middle
 
 --
 
-In R you create objects, which you can bind to a name 'x'. You do NOT create an object name 'x'.
+In R, you create objects, which you can bind to a name 'x'. 
+--
+.red[You do NOT create an object name 'x'.]
+
+--
 
 
 ```r
@@ -327,11 +358,13 @@ x &lt;- c(1, 2, 3)
 y &lt;- x
 ```
 
+--
+
 ![](https://github.com/hadley/adv-r/raw/master/diagrams/name-value/binding-2.png)&lt;!-- --&gt;
 ---
 ## Vectors and functions
 
-Simplifying, in R, 
+A little simplistic, in R, 
 
 Vectors contain the information; the data. 
 
@@ -459,7 +492,7 @@ class(dt)
 ---
 class: center, middle
 ## Interlude
-### .left[Executing Stata from R, and viceversa]
+.f3[Executing Stata from R, and vice versa]
 ---
 ## Execute Stata from R
 
@@ -469,7 +502,7 @@ class: center, middle
 - You need to install the package **RStata** in R, `install.packages('RStata')`.
 --
 
-- Open .Rprofile, `file.edit("~/.Rprofile")`, and add the following lines, changing the path and the Stata version
+- Execute `file.edit("~/.Rprofile")` and add the following lines, changing the path and the Stata version
 
 
 ```r
@@ -532,26 +565,27 @@ RStata::stata("sum a", data.in = x)
 ## Execute Stata from R
 
 You can read more about it in 
-.center[
+
 - The official repo, [lbraglia/RStata](https://github.com/lbraglia/RStata)
 
 - Take a look at this [blog](https://fsolt.org/blog/2018/08/15/switch-to-r.html).
-]
+
 ---
 ## Execute R from Stata
 
 - Install **github** Stata package, `net install github, from("https://haghish.github.io/github/")`
+
 --
 
 - Install **rcall** Stata package, `github install haghish/rcall, stable`
--- 
+
+--
 
 - Take a look at all the examples in the help file `help rcall`
 
 ---
 class: center, middle
-## Interlude
-### .left[Executing Stata from R, and viceversa]
+## Hands on!
 ---
 We will use the [gapminder](https://www.gapminder.org/) data.
 
